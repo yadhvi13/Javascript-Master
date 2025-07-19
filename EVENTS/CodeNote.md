@@ -1,3 +1,13 @@
+##image source
+```javascript
+"https://images.unsplash.com/photo-1682687982502-b05f0565753a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzMXx8fGVufDB8fHx8fA%3D%3D"
+
+   "https://images.unsplash.com/photo-1626968361222-291e74711449?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvZGVyfGVufDB8fDB8fHww"
+
+  " https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW9kZWx8ZW58MHx8MHx8fDA%3D"
+```
+
+
 ##selecting elements
 ```  javascript 
 let abc = document.getElementById("abc");
@@ -129,5 +139,94 @@ form.addEventListener("submit",function(details){
     card.appendChild(p);
     
     main.append(card);
+
+    inputs.forEach(function(inp){
+        if(inp.type !== "submit"){
+            inp.value = "";
+        }
+    });
 })
+
+
+// MouseOver and MouseOut
+let abcd = document.querySelector("#abcd");
+
+abcd.addEventListener("mouseover",function(){
+    abcd.style.backgroundColor = "yellow";
+})
+abcd.addEventListener("mouseout",function(){
+    abcd.style.backgroundColor = "red";
+})
+
+//rending and moving div from from left to right to top to bottom 
+//but the position of the div should be ABSOLUTE for the div to be moved
+let abcd = document.querySelector("#abcd");
+window.addEventListener("mousemove",function(dets){
+//    console.log(dets.clientX, dets.clientY);
+      abcd.style.top = dets.clientY + "px";
+      abcd.style.left = dets.clientX + "px";
+})
+
+
+//Event Object: target,type,preventDefault
+let abcd = document.querySelector("#abcd");
+abcd.addEventListener("click",function(dets){
+      //the dets inside function parameter is called EVENT OBJECT    
+});
+
+//EVENT BUBBLING 
+document.querySelector("#nav")
+.addEventListener("click",function(){
+    alert("clicked");
+})
+
+let ul = document.querySelector("ul");
+ul.addEventListener("click",function(dets){
+    alert("clicked");
+    console.log(dets.target);
+    dets.target.style.textDecoration = "lt";
+    dets.target.classList.add("lt")
+    dets.target.classList.toggle("lt");   
+})
+
+
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let button = document.querySelector("button");
+
+button.addEventListener("click",function(){
+    console.log("button clicked"); 
+});
+c.addEventListener("click",function(){
+    console.log("c clicked"); 
+})
+b.addEventListener("click",function(){
+    console.log("b clicked"); 
+})
+a.addEventListener("click",function(){
+    console.log("a clicked"); 
+})
+
+//EVENT CAPTURING
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let button = document.querySelector("button");
+
+button.addEventListener("click",function(){
+    console.log("button clicked"); 
+});
+c.addEventListener("click",function(){
+    console.log("c clicked"); 
+})
+b.addEventListener("click",function(){
+    console.log("b clicked"); 
+})
+a.addEventListener("click",function(){
+    console.log("a clicked"); 
+}, true);
+//capture phase on a
+
+//phle capture phase on hoga fer bubbling phase, capture phase jisme hoga phle wo honhe aur uske baad bubbling phase
 ```

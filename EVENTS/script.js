@@ -84,44 +84,109 @@
 //  }
 // })
 
-let form = document.querySelector("form");
-let inputs = document.querySelectorAll("input");
-let main = document.querySelector("#main");
-
-form.addEventListener("submit",function(details){
-     details.preventDefault();
-
- //Creating Div-1 
-    let card = document.createElement("div");
-    card.classList.add("card");
- //Creating Div-2
-    let profilepic = document.createElement("div");
-    profilepic.classList.add("profilepic");
-//create image
-    let img = document.createElement("img");
-    img.setAttribute("src", inputs[0].value);
-//Creating H3
-    let h3 = document.createElement("h3");
-    h3.textContent = inputs[1].value;
-//Creating H5
-    let h5 = document.createElement("h5");
-    h5.textContent = inputs[2].value;
-//Creating para tag
-    let p = document.createElement("p");
-    p.textContent = inputs[3].value;
 
 
-    profilepic.appendChild(img);
-    card.appendChild(profilepic);
-    card.appendChild(h3);
-    card.appendChild(h5);
-    card.appendChild(p);
+// let form = document.querySelector("form");
+// let inputs = document.querySelectorAll("input");
+// let main = document.querySelector("#main");
+
+// form.addEventListener("submit",function(details){
+//      details.preventDefault();
+
+//  //Creating Div-1 
+//     let card = document.createElement("div");
+//     card.classList.add("card");
+//  //Creating Div-2
+//     let profilepic = document.createElement("div");
+//     profilepic.classList.add("profilepic");
+// //create image
+//     let img = document.createElement("img");
+//     img.setAttribute("src", inputs[0].value);
+// //Creating H3
+//     let h3 = document.createElement("h3");
+//     h3.textContent = inputs[1].value;
+// //Creating H5
+//     let h5 = document.createElement("h5");
+//     h5.textContent = inputs[2].value;
+// //Creating para tag
+//     let p = document.createElement("p");
+//     p.textContent = inputs[3].value;
+
+
+//     profilepic.appendChild(img);
+//     card.appendChild(profilepic);
+//     card.appendChild(h3);
+//     card.appendChild(h5);
+//     card.appendChild(p);
     
-    main.append(card);
+//     main.append(card);
 
-    inputs.forEach(function(inp){
-        if(inp.type !== "submit"){
-            inp.value = "";
-        }
-    });
+//     inputs.forEach(function(inp){
+//         if(inp.type !== "submit"){
+//             inp.value = "";
+//         }
+//     });
+// })
+
+
+// ------------MOUSE Move (mouseover, mouseout, mousemove)--------------------------++
+// let abcd = document.querySelector("#abcd");
+
+// abcd.addEventListener("mouseover",function(){
+//     abcd.style.backgroundColor = "yellow";
+// })
+// abcd.addEventListener("mouseout",function(){
+//     abcd.style.backgroundColor = "red";
+// })
+
+// let abcd = document.querySelector("#abcd");
+// window.addEventListener("mousemove",function(dets){
+// //    console.log(dets.clientX, dets.clientY);
+//       abcd.style.top = dets.clientY + "px";
+//       abcd.style.left = dets.clientX + "px";
+// })
+
+
+// -------------------------------EVENT OBJECT---------------------------------------------
+// let abcd = document.querySelector("#abcd");
+// abcd.addEventListener("click",function(dets){
+//       //the dets inside function parameter is called EVENT OBJECT
+       
+// });
+
+
+// --------EVENT BUBBLING------------------
+// document.querySelector("#nav")
+// .addEventListener("click",function(){
+//     alert("clicked");
+// })
+
+// let ul = document.querySelector("ul");
+// ul.addEventListener("click",function(dets){
+//     // alert("clicked");
+//     // console.log(dets.target);
+//     // dets.target.style.textDecoration = "lt";
+//     // dets.target.classList.add("lt")
+//     // dets.target.classList.toggle("lt");
+// })
+
+
+//-------------EVENT CAPTURING--------------
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let button = document.querySelector("button");
+
+button.addEventListener("click",function(){
+    console.log("button clicked"); 
+});
+c.addEventListener("click",function(){
+    console.log("c clicked"); 
 })
+b.addEventListener("click",function(){
+    console.log("b clicked"); 
+})
+a.addEventListener("click",function(){
+    console.log("a clicked"); 
+}, true);
+//capture phase on
